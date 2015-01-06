@@ -1,0 +1,8 @@
+{
+  "name": "SLANGKEY",
+  "version": "0.1",
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*"
+  }
+}

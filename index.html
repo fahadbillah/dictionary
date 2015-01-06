@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>SlangKey</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+	var format = {
+		"slang" : "",
+		"category" : "",
+		"tags" : []
+	}
+	var allSlangs = [];
+
+	var tempList = ["Bellend", "Bloody hell","Hell", "Bugger me", "Bugger off", "Clunge", "Fanny", "Fuck me sideways!", "Nonce", "Piss off", "Poof","Pouf", "Slag", "Stick it up your arse", "Tart", "Toff	", "Tosser", "Twonk", "	arse", "arsehole", "bollocks", "bugger off", "clunge", "cock cheese", "cock jockey", "fucking cunt", "fucktard", "gob shite	", "hobknocker", "jizz", "munter", "plonker", "poxy", "randy", "rat arsed", "shite", "shitfaced", "slut", "	spunk", "twat", "wankstain"];
+	$.get('slangs.json', function(data) {
+		allSlangs = data;
+		
+
+		if (allSlangs.length>0) {
+			$.each(allSlangs, function(index, val) {
+
+				$.each(tempList, function(i, v) {
+					allSlangs.push(v.trim());
+				});
+			});
+		} else{
+			$.each(tempList, function(i, v) {
+				allSlangs.push(v.trim());
+			});
+		};
+		var uniqueNames = [];
+		$.each(allSlangs, function(i, el){
+			if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+		});
+		console.log(uniqueNames);
+		var url = 'data:text/json;charset=utf8,' + encodeURIComponent(uniqueNames);
+		window.open(url, '_blank');
+		window.focus();
+		// console.log(allSlangs.length);
+		// var uniqueNames = [];
+		// $.each(allSlangs, function(i, el){
+		// 	if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+		// });
+	document.write(JSON.stringify(uniqueNames));
+});
+	</script>
+</body>
+</html>
+<!-- http://www.noswearing.com/ -->
