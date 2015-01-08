@@ -22,8 +22,8 @@
 	$.get('slangs.json', function(data) {
 		allSlangs = data;
 
-		makeUnique(allSlangs);
-
+		// makeUnique(allSlangs);
+		count(allSlangs);
 		// if (allSlangs.length>0) {
 		// 	$.each(allSlangs, function(index, val) {
 
@@ -59,6 +59,10 @@
 		});
 		console.log(uniqueNames);
 		document.write(JSON.stringify(uniqueNames));
+	}
+
+	function count (allSlangs) {
+		document.write(allSlangs.length);
 	}
 	</script>
 </body>
